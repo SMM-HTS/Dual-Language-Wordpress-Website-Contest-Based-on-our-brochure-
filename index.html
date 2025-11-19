@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis of Serenity - Where Japanese Philosophy Meets Modern Luxury</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #8B6F47;
+            --secondary-color: #2C3E50;
+            --accent-color: #C9A66B;
+            --light-bg: #F8F6F3;
+            --dark-bg: #1A1A1A;
+            --text-dark: #333;
+            --text-light: #666;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(139, 111, 71, 0.3)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600');
+            background-size: cover;
+            background-position: center;
+            animation: zoomIn 20s ease infinite alternate;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s both;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 10px 30px rgba(139, 111, 71, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(139, 111, 71, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .experience-section {
+            background: var(--light-bg);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: scale(1.02);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(139, 111, 71, 0.4)), url('https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=1200');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        .philosophy-section {
+            background: white;
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .philosophy-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+        }
+
+        .philosophy-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .philosophy-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .philosophy-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .philosophy-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .investment-section {
+            background: var(--light-bg);
+        }
+
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .investment-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .investment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .investment-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .investment-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .investment-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .location-section {
+            background: white;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .location-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .location-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .location-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .location-text p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .location-features {
+            list-style: none;
+        }
+
+        .location-features li {
+            padding: 12px 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 500;
+        }
+
+        .location-features li i {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .team-section {
+            background: var(--light-bg);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        .team-info p {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .gallery-section {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.2);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(139, 111, 71, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 48px;
+            color: white;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .stats-section {
+            background: var(--secondary-color);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .features-section {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 25px;
+            align-items: start;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            font-size: 28px;
+            color: white;
+        }
+
+        .feature-content h4 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .feature-content p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 56px;
+            }
+
+            .investment-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .philosophy-content,
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .investment-grid,
+            .team-grid,
+            .gallery-grid,
+            .stats-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img style="width: 80px;" src="1.png" alt="">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="investment.html">Investment</a></li>
+                <li><a href="location.html">Location</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active">EN</button>
+                <button class="lang-btn">AR</button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 data-en="Oasis of Serenity" data-ar="واحة الهدوء">Oasis of Serenity</h1>
+            <p data-en="Where Japanese Philosophy Meets Modern Luxury Living" data-ar="حيث يلتقي فلسفة اليابان بالفخامة الحديثة">Where Japanese Philosophy Meets Modern Luxury Living</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Schedule Visit</a>
+                <a href="#about" class="btn btn-secondary">Explore More</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Luxury Units</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Premium Amenities</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Concierge Service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="experience-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Experience Serenity" data-ar="تجربة الهدوء">Experience Serenity</h2>
+                <p data-en="Immerse yourself in a lifestyle where tranquility meets sophistication" data-ar="انغمس في نمط حياة يلتقي فيه الهدوء بالرقي">Immerse yourself in a lifestyle where tranquility meets sophistication</p>
+            </div>
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h3 data-en="Bonsai Philosophy" data-ar="فلسفة البونساي">Bonsai Philosophy</h3>
+                    <p data-en="Our design philosophy is deeply rooted in the ancient Japanese art of Bonsai, symbolizing harmony, balance, and natural beauty. Each residence is carefully crafted to create a peaceful sanctuary where modern luxury seamlessly blends with timeless Eastern principles." data-ar="فلسفة التصميم لدينا متجذرة بعمق في فن البونساي الياباني القديم، الذي يرمز إلى الانسجام والتوازن والجمال الطبيعي. يتم تصميم كل إقامة بعناية لإنشاء ملاذ هادئ حيث تندمج الفخامة الحديثة بسلاسة مع المبادئ الشرقية الخالدة.">Our design philosophy is deeply rooted in the ancient Japanese art of Bonsai, symbolizing
+                        harmony, balance, and natural beauty. Each residence is carefully crafted to create a peaceful
+                        sanctuary where modern luxury seamlessly blends with timeless Eastern principles.</p>
+                    <p data-en="We believe in creating spaces that nurture the soul, promote mindfulness, and celebrate the beauty of simplicity. Every detail is intentionally designed to enhance your connection with nature and foster a sense of inner peace." data-ar="نحن نؤمن بإنشاء مساحات ترعى الروح، وتعزز التأمل، وتحتفل بجمال البساطة. كل تفصيل مصمم عمداً لتعزيز اتصالك بالطبيعة وتعزيز السلام الداخلي.">We believe in creating spaces that nurture the soul, promote mindfulness, and celebrate the
+                        beauty of simplicity. Every detail is intentionally designed to enhance your connection with
+                        nature and foster a sense of inner peace.</p>
+                    <a href="#investment" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="philosophy-image">
+                    <img src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?w=800"
+                        alt="Bonsai Philosophy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Exceptional Living Features" data-ar="ميزات المعيشة الاستثنائية">Exceptional Living Features</h2>
+                <p data-en="Discover the amenities that make Oasis of Serenity truly extraordinary" data-ar="اكتشف وسائل الراحة التي تجعل واحة الهدوء استثنائية حقاً">Discover the amenities that make Oasis of Serenity truly extraordinary</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4 data-en="Zen Gardens" data-ar="حدائق الزن">Zen Gardens</h4>
+                        <p data-en="Meticulously maintained Japanese gardens providing peaceful meditation spaces and natural beauty throughout the property." data-ar="حدائق يابانية محافظ عليها بدقة توفر مساحات تأمل هادئة وجمال طبيعي في جميع أنحاء العقار.">Meticulously maintained Japanese gardens providing peaceful meditation spaces and natural
+                            beauty throughout the property.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4 data-en="Infinity Pools" data-ar="مسابح الإنفينيتي">Infinity Pools</h4>
+                        <p data-en="State-of-the-art swimming facilities with breathtaking views, creating an oasis of relaxation and luxury." data-ar="مرافق سباحة حديثة مع مناظر خلابة، تخلق واحة من الاسترخاء والفخامة.">State-of-the-art swimming facilities with breathtaking views, creating an oasis of relaxation
+                            and luxury.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4 data-en="Wellness Center" data-ar="مركز الرعاية الصحية">Wellness Center</h4>
+                        <p data-en="Comprehensive fitness facilities including yoga studios, meditation rooms, and cutting-edge gym equipment." data-ar="مرافق للياقة البدنية الشاملة تشمل استوديوهات اليوغا، غرف التأمل، ومعدات الجيم المتطورة.">Comprehensive fitness facilities including yoga studios, meditation rooms, and cutting-edge
+                            gym equipment.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4 data-en="Premium Security" data-ar="الأمان المتميز">Premium Security</h4>
+                        <p data-en="Advanced 24/7 security systems and professional staff ensuring complete peace of mind for all residents." data-ar="أنظمة أمان متقدمة على مدار 24/7 وموظفين محترفين يضمنون السلام الكامل لجميع السكان.">Advanced 24/7 security systems and professional staff ensuring complete peace of mind for all
+                            residents.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4 data-en="Smart Parking" data-ar="المواقف الذكية">Smart Parking</h4>
+                        <p data-en="Automated parking systems with ample space and electric vehicle charging stations for modern convenience." data-ar="أنظمة مواقف آلية مع مساحة واسعة ومحطات شحن للسيارات الكهربائية للراحة الحديثة.">Automated parking systems with ample space and electric vehicle charging stations for modern
+                            convenience.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4 data-en="Fine Dining" data-ar="الطعام الفاخر">Fine Dining</h4>
+                        <p data-en="Exclusive restaurants featuring international cuisine and rooftop dining experiences with panoramic views." data-ar="مطاعم حصرية تقدم المأكولات الدولية وتجارب تناول الطعام على السطح مع مناظر بانورامية.">Exclusive restaurants featuring international cuisine and rooftop dining experiences with
+                            panoramic views.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="investment" class="investment-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Attractive Investment" data-ar="استثمار جذاب">Attractive Investment</h2>
+                <p data-en="Discover why Oasis of Serenity is the perfect investment opportunity" data-ar="اكتشف لماذا واحة الهدوء هي فرصة الاستثمار المثالية">Discover why Oasis of Serenity is the perfect investment opportunity</p>
+            </div>
+            <div class="investment-grid">
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 data-en="Prime Location" data-ar="الموقع المتميز">Prime Location</h4>
+                    <p data-en="Strategically situated in one of the most sought-after neighborhoods, offering excellent connectivity and proximity to key landmarks." data-ar="يقع استراتيجياً في أحد الأحياء الأكثر طلباً، يوفر اتصالاً ممتازاً وقرباً من المعالم الرئيسية.">Strategically situated in one of the most sought-after neighborhoods, offering excellent
+                        connectivity and proximity to key landmarks.</p>
+                    <a href="location.html" data-en="View Location" data-ar="عرض الموقع" class="btn btn-primary">View Location</a>
+                </div>
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 data-en="Appreciation Value" data-ar="قيمة التقدير">Appreciation Value</h4>
+                    <p data-en="Proven track record of consistent property value growth with projected annual appreciation of 12-15% over the next five years." data-ar="سجل حافل مثبت لنمو قيمة الممتلكات المتسق مع تقدير سنوي متوقع بنسبة 12-15% خلال السنوات الخمس القادمة.">Proven track record of consistent property value growth with projected annual appreciation of
+                        12-15% over the next five years.</p>
+                    <a href="contact.html" data-en="Get Details" data-ar="احصل على التفاصيل" class="btn btn-primary">Get Details</a>
+                </div>
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h4 data-en="Premium Amenities" data-ar="وسائل الراحة المتميزة">Premium Amenities</h4>
+                    <p data-en="World-class facilities including spa, fitness centers, pools, and concierge services that enhance property value and lifestyle." data-ar="مرافق عالمية المستوى تشمل السبا، مراكز اللياقة البدنية، المسابح، وخدمات الكونسيرج التي تعزز قيمة الممتلكات ونمط الحياة.">World-class facilities including spa, fitness centers, pools, and concierge services that enhance
+                        property value and lifestyle.</p>
+                    <a href="gallery.html" data-en="View Amenities" data-ar="عرض وسائل الراحة" class="btn btn-primary">View Amenities</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="location-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Vibrant Location" data-ar="الموقع النابض بالحياة">Vibrant Location</h2>
+                <p data-en="Perfectly positioned for modern urban living" data-ar="موقع مثالي للحياة الحضرية الحديثة">Perfectly positioned for modern urban living</p>
+            </div>
+            <div class="location-content">
+                <div class="location-image">
+                    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800" alt="Location">
+                </div>
+                <div class="location-text">
+                    <h3 data-en="Connected to Everything" data-ar="متصل بكل شيء">Connected to Everything</h3>
+                    <p data-en="Experience the perfect balance of tranquility and urban convenience. Our prime location offers unparalleled access to shopping, dining, entertainment, and cultural attractions." data-ar="استمتع بالتوازن المثالي بين الهدوء والراحة الحضرية. موقعنا المتميز يوفر وصولاً لا مثيل له إلى التسوق والطعام والترفيه والمعالم الثقافية.">Experience the perfect balance of tranquility and urban convenience. Our prime location offers
+                        unparalleled access to shopping, dining, entertainment, and cultural attractions.</p>
+                    <ul class="location-features">
+                        <li data-en="5 minutes to Metro Station" data-ar="5 دقائق إلى محطة المترو"><i class="fas fa-check-circle"></i> 5 minutes to Metro Station</li>
+                        <li data-en="Walking distance to shopping malls" data-ar="مسافة مشي إلى مراكز التسوق"><i class="fas fa-check-circle"></i> Walking distance to shopping malls</li>
+                        <li data-en="Close to international schools" data-ar="قريب من المدارس الدولية"><i class="fas fa-check-circle"></i> Close to international schools</li>
+                        <li data-en="Easy access to major highways" data-ar="وصول سهل إلى الطرق السريعة الرئيسية"><i class="fas fa-check-circle"></i> Easy access to major highways</li>
+                        <li data-en="Near business districts" data-ar="بالقرب من الأحياء التجارية"><i class="fas fa-check-circle"></i> Near business districts</li>
+                    </ul>
+                    <a href="contact.html" data-en="Request Location Details" data-ar="طلب تفاصيل الموقع" class="btn btn-primary">Request Location Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Our Team" data-ar="فريقنا">Our Team</h2>
+                <p data-en="Meet the experts behind creating your perfect living experience" data-ar="تعرف على الخبراء وراء إنشاء تجربة المعيشة المثالية الخاصة بك">Meet the experts behind creating your perfect living experience</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400" alt="Kanji Tanaka">
+                    </div>
+                    <div class="team-info">
+                        <h4 data-en="Kanji Tanaka" data-ar="كانجي تاناكا">Kanji Tanaka</h4>
+                        <p data-en="Chief Architect" data-ar="المهندس المعماري الرئيسي">Chief Architect</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400" alt="Aisha Patel">
+                    </div>
+                    <div class="team-info">
+                        <h4 data-en="Aisha Patel" data-ar="عائشة باتيل">Aisha Patel</h4>
+                        <p data-en="Interior Design Director" data-ar="مدير تصميم الديكور الداخلي">Interior Design Director</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400" alt="Marcus Chen">
+                    </div>
+                    <div class="team-info">
+                        <h4 data-en="Marcus Chen" data-ar="ماركوس تشين">Marcus Chen</h4>
+                        <p data-en="Project Manager" data-ar="مدير المشروع">Project Manager</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400"
+                            alt="David Wilson">
+                    </div>
+                    <div class="team-info">
+                        <h4 data-en="Sarah Williams" data-ar="سارة ويليامز">Sarah Williams</h4>
+                        <p data-en="Sales Director" data-ar="مدير المبيعات">Sales Director</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Gallery" data-ar="المعرض">Gallery</h2>
+                <p data-en="Explore the beauty and elegance of Oasis of Serenity" data-ar="استكشف جمال وأناقة واحة الهدوء">Explore the beauty and elegance of Oasis of Serenity</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600" alt="Bedroom">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600" alt="Living Room">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600" alt="Kitchen">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600" alt="Exterior">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600" alt="Pool">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Dining">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2 data-en="Ready to Begin Your Journey?" data-ar="جاهز لبدء رحلتك؟">Ready to Begin Your Journey?</h2>
+            <p data-en="Get in touch with us today to schedule your exclusive property tour" data-ar="تواصل معنا اليوم لجدولة جولة العقار الحصرية الخاصة بك">Get in touch with us today to schedule your exclusive property tour</p>
+            <a href="mailto:info@oasisserenity.com" data-en="Contact Us" data-ar="اتصل بنا" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="about.html" data-en="About Us" data-ar="من نحن">About Us</a></li>
+                        <li><a href="investment.html" data-en="Investment" data-ar="الاستثمار">Investment</a></li>
+                        <li><a href="gallery.html" data-en="Gallery" data-ar="المعرض">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Contact" data-ar="اتصل">Contact</h3>
+                    <ul>
+                        <li><a href="tel:+1234567890"><i class="fas fa-phone"></i> +123 456 7890</a></li>
+                        <li><a href="mailto:info@oasisserenity.com"><i class="fas fa-envelope"></i>
+                                info@oasisserenity.com</a></li>
+                        <li data-en="123 Serenity Boulevard" data-ar="123 شارع الهدوء"><i class="fas fa-map-marker-alt"></i> 123 Serenity Boulevard</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Others" data-ar="أخرى">Others</h3>
+                    <ul>
+                        <li><a href="#" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a></li>
+                        <li><a href="#" data-en="Terms of Service" data-ar="شروط الخدمة">Terms of Service</a></li>
+                        <li><a href="#" data-en="FAQ" data-ar="الأسئلة الشائعة">FAQ</a></li>
+                        <li><a href="#" data-en="Careers" data-ar="الوظائف">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Follow Us" data-ar="تابعنا">Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p data-en="&copy; 2025 Oasis of Serenity. All rights reserved." data-ar="&copy; 2025 واحة الهدوء. جميع الحقوق محفوظة.">&copy; 2025 Oasis of Serenity. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.querySelector('header');
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const playButton = document.querySelector('.play-button');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                }
+            });
+
+            scrollIndicator.addEventListener('click', function () {
+                document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(targetId);
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                    // If it's .html, let it navigate normally
+                });
+            });
+
+            playButton.addEventListener('click', function () {
+                alert('Video player would open here. Integration with video platform needed.');
+            });
+
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.investment-card, .team-card, .gallery-item, .feature-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    if (this.textContent === 'AR') {
+                        document.documentElement.lang = 'ar';
+                        document.querySelectorAll('[data-ar]').forEach(el => {
+                            el.textContent = el.dataset.ar;
+                        });
+                    } else {
+                        document.documentElement.lang = 'en';
+                        document.querySelectorAll('[data-ar]').forEach(el => {
+                            el.textContent = el.dataset.en;
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
